@@ -6,7 +6,7 @@ def call(Map args) {
   def appName = args.appName
 
   stage('Deploy to Heroku') {
-    Heroku heroku = new Heroku(this, appName)
+    Heroku heroku = new Heroku(pipeline: this, appName: appName)
     heroku.deploy()
   }
 }
