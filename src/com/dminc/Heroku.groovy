@@ -23,7 +23,7 @@ class Heroku {
 
   private void pushToHerokuGitRepo() {
     withCredentials([usernamePassword(credentialsId: 'heroku', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-      sh "git push https://${USERNAME}:${PASSWORD}@git.heroku.com/${appName}.git ${pipeline.env.TAG_NAME}:master"
+      sh "git push -f https://${USERNAME}:${PASSWORD}@git.heroku.com/${appName}.git ${pipeline.env.TAG_NAME}:master"
     }
   }
 }
